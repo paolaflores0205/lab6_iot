@@ -1,0 +1,63 @@
+plugins {
+    alias(libs.plugins.android.application)
+}
+
+// Compila sin JSON para poder estudiar los layouts; el acceso queda deshabilitado.
+def firebaseConfigurado = file('google-services.json').exists()
+if (firebaseConfigurado) {
+    apply plugin: 'com.google.gms.google-services'
+}
+
+android {
+    namespace 'com.example.ola'
+    compileSdk {
+        version = release(37)
+    }
+
+    defaultConfig {
+        applicationId "com.example.ola"
+        minSdk 34
+        targetSdk 37
+        versionCode 1
+        versionName "1.0"
+        resValue 'bool', 'firebase_configurado', firebaseConfigurado.toString()
+        resValue 'string', 'facebook_application_id', providers.gradleProperty('facebookAppId').getOrElse('0')
+        resValue 'string', 'facebook_login_protocol_scheme', 'fb' + providers.gradleProperty('facebookAppId').getOrElse('0')
+        resValue 'string', 'facebook_client_token', providers.gradleProperty('facebookClientToken').getOrElse('')
+        resValue 'bool', 'facebook_configurado', (providers.gradleProperty('facebookAppId').getOrElse('0') != '0'
+                && !providers.gradleProperty('facebookClientToken').getOrElse('').isEmpty()).toString()
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        viewBinding true
+        resValues true
+    }
+    buildTypes {
+        release {
+            optimization {
+                enable false
+            }
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+dependencies {
+    implementation platform('com.google.firebase:firebase-bom:35.1.0')
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-firestore'
+    implementation 'com.firebaseui:firebase-ui-auth:9.1.1'
+    implementation 'com.facebook.android:facebook-login:18.3.0' 
+    implementation libs.activity.ktx
+    implementation libs.appcompat
+    implementation libs.constraintlayout
+    implementation libs.material
+    testImplementation libs.junit
+    androidTestImplementation libs.espresso.core
+    androidTestImplementation libs.ext.junit
+}

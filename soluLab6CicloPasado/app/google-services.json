@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "691811491408",
+    "project_id": "lab6ciclopasado",
+    "storage_bucket": "lab6ciclopasado.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691811491408:android:9ffadde95411792c793b55",
+        "android_client_info": {
+          "package_name": "com.example.solulab6ciclopasado"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwFzc9oY9qCYxNprdek-F4679k02V12hw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

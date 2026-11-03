@@ -1,0 +1,26 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main" android:layout_width="match_parent" android:layout_height="match_parent"
+    android:fillViewport="true">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:gravity="center" android:padding="24dp">
+        <ImageView android:layout_width="100dp" android:layout_height="100dp"
+            android:src="@drawable/logo_mundial" android:contentDescription="Logo de Mis pronósticos" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Mis pronósticos" android:textSize="28sp" android:gravity="center" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Registra tus resultados y sigue tus aciertos" android:gravity="center"
+            android:layout_marginBottom="20dp" />
+        <Button android:id="@+id/btnIngresar" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:text="Empezar con correo" />
+        <Button android:id="@+id/btnGoogle" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:text="Acceder con Google" />
+        <Button android:id="@+id/btnGithub" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:text="Acceder con GitHub" />
+        <Button android:id="@+id/btnFacebook" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:text="Acceder con Facebook" android:visibility="gone" />
+        <Button android:id="@+id/btnRecuperar" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:text="Recuperar contraseña" />
+        <TextView android:id="@+id/tvMensaje" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:paddingTop="16dp" android:gravity="center" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="24dp">
+            <TextView android:id="@+id/tvTitulo" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Nuevo gasto" android:textSize="26sp" />
+            <EditText android:id="@+id/etDescripcion" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:hint="Descripción, por ejemplo Almuerzo" android:inputType="textCapSentences" android:maxLength="100" />
+            <EditText android:id="@+id/etMonto" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:hint="Monto en soles, por ejemplo 12.50" android:inputType="numberDecimal" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Categoría" />
+            <Spinner android:id="@+id/spCategoria" android:layout_width="match_parent" android:layout_height="48dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Estado" />
+            <Spinner android:id="@+id/spEstado" android:layout_width="match_parent" android:layout_height="48dp" />
+            <Button android:id="@+id/btnFecha" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Seleccionar fecha" />
+            <TextView android:id="@+id/tvAviso" android:layout_width="match_parent" android:layout_height="wrap_content" />
+            <Button android:id="@+id/btnGuardar" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Guardar gasto" />
+            <Button android:id="@+id/btnCancelar" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Cancelar" />
+        </LinearLayout>
+    </ScrollView><com.google.android.material.bottomnavigation.BottomNavigationView
+    android:id="@+id/navegacion" android:layout_width="match_parent" android:layout_height="wrap_content"
+    app:menu="@menu/navegacion" app:labelVisibilityMode="labeled" /></LinearLayout>

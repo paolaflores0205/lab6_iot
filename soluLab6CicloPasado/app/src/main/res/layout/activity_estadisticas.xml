@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/main"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="16dp">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Estadísticas del Mundial" android:textSize="26sp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Filtrar por selección" />
+            <Spinner android:id="@+id/spFiltro" android:layout_width="match_parent" android:layout_height="48dp" />
+            <TextView android:id="@+id/tvResumen" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:paddingVertical="16dp" android:text="Cargando estadísticas…" android:textSize="16sp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Cantidad de pronósticos por estado" android:textSize="18sp" />
+            <com.example.solulab6ciclopasado.GraficoView android:id="@+id/graficoBarras"
+                android:layout_width="match_parent" android:layout_height="260dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="16dp" android:text="Distribución porcentual por estado" android:textSize="18sp" />
+            <com.example.solulab6ciclopasado.GraficoView android:id="@+id/graficoCircular"
+                android:layout_width="match_parent" android:layout_height="260dp" />
+        </LinearLayout>
+    </ScrollView>
+<com.google.android.material.bottomnavigation.BottomNavigationView
+    android:id="@+id/navegacion" android:layout_width="match_parent"
+    android:layout_height="wrap_content" app:menu="@menu/navegacion"
+    app:labelVisibilityMode="labeled" />
+</LinearLayout>

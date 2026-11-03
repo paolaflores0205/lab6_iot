@@ -1,0 +1,20 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /usuarios/{uid}/gastos/{gastoId} {
+      function propietario() { return request.auth != null && request.auth.uid == uid; }
+      function valido() {
+        let d = request.resource.data;
+        return d.keys().hasAll(['descripcion','categoria','montoCentimos','fecha','estado'])
+          && d.keys().hasOnly(['descripcion','categoria','montoCentimos','fecha','estado'])
+          && d.descripcion is string && d.descripcion.size() > 0 && d.descripcion.size() <= 100
+          && d.categoria in ['Alimentación','Transporte','Estudios','Otros']
+          && d.montoCentimos is int && d.montoCentimos > 0 && d.montoCentimos <= 100000000000
+          && d.fecha is timestamp
+          && d.estado in ['Pendiente','Pagado'];
+      }
+      allow read, delete: if propietario();
+      allow create, update: if propietario() && valido();
+    }
+  }
+}

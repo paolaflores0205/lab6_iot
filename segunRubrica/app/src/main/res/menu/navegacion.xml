@@ -1,0 +1,5 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/navGastos" android:icon="@android:drawable/ic_menu_agenda" android:title="Mis gastos" />
+    <item android:id="@+id/navEstadisticas" android:icon="@android:drawable/ic_menu_sort_by_size" android:title="Estadísticas" />
+    <item android:id="@+id/navSalir" android:icon="@android:drawable/ic_lock_power_off" android:title="Cerrar sesión" />
+</menu>

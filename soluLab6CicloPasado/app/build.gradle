@@ -1,0 +1,68 @@
+plugins {
+    alias(libs.plugins.android.application)
+    id 'com.google.gms.google-services'
+}
+
+android {
+    namespace 'com.example.solulab6ciclopasado'
+    compileSdk {
+        version = release(37)
+    }
+
+    defaultConfig {
+        applicationId "com.example.solulab6ciclopasado"
+        minSdk 34
+        targetSdk 37
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // Facebook pertenece a la rúbrica actual; el lab antiguo pide GitHub.
+        // Se activa con -Pfacebook=true y las propiedades documentadas.
+        resValue 'bool', 'facebook_habilitado', providers.gradleProperty('facebook').getOrElse('false')
+        resValue 'string', 'facebook_application_id', providers.gradleProperty('facebookAppId').getOrElse('0')
+        resValue 'string', 'facebook_login_protocol_scheme', 'fb' + providers.gradleProperty('facebookAppId').getOrElse('0')
+        resValue 'string', 'facebook_client_token', providers.gradleProperty('facebookClientToken').getOrElse('')
+    }
+
+    buildTypes {
+        release {
+            optimization {
+                enable false
+            }
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    buildFeatures {
+        viewBinding true
+        resValues true
+    }
+}
+
+dependencies {
+    implementation libs.activity.ktx
+    implementation libs.appcompat
+    implementation libs.constraintlayout
+    implementation libs.material
+    testImplementation libs.junit
+    androidTestImplementation libs.espresso.core
+    androidTestImplementation libs.ext.junit
+
+    implementation platform('com.google.firebase:firebase-bom:35.1.0')
+    implementation 'com.google.firebase:firebase-analytics'
+
+    //para las librerias de autenticacion
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-firestore'
+
+    //para el firebase ui
+    implementation 'com.firebaseui:firebase-ui-auth:9.1.1'
+    if (providers.gradleProperty('facebook').getOrElse('false').toBoolean()) {
+        implementation 'com.facebook.android:facebook-login:18.3.0'
+    }
+}

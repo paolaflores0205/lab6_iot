@@ -1,0 +1,34 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/main"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
+        android:fillViewport="true">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="24dp">
+            <TextView android:id="@+id/tvPronosticos" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:text="Nuevo pronóstico" android:textSize="26sp" />
+            <EditText android:id="@+id/etSeleccionA" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:hint="Selección A" android:inputType="textCapWords" />
+            <EditText android:id="@+id/etSeleccionB" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:hint="Selección B" android:inputType="textCapWords" />
+            <EditText android:id="@+id/etGolesA" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:hint="Goles de la selección A" android:inputType="number" />
+            <EditText android:id="@+id/etGolesB" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:hint="Goles de la selección B" android:inputType="number" />
+            <Button android:id="@+id/btnFecha" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:text="Seleccionar fecha" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Estado (al crear se asigna Pendiente)" />
+            <Spinner android:id="@+id/spEstado" android:layout_width="match_parent" android:layout_height="48dp" />
+            <TextView android:id="@+id/tvAviso" android:layout_width="match_parent" android:layout_height="wrap_content" />
+            <Button android:id="@+id/btnGuardarPrueba" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:text="Guardar pronóstico" />
+            <Button android:id="@+id/btnCancelar" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:text="Volver a mis pronósticos" />
+        </LinearLayout>
+    </ScrollView>
+<com.google.android.material.bottomnavigation.BottomNavigationView
+    android:id="@+id/navegacion" android:layout_width="match_parent"
+    android:layout_height="wrap_content" app:menu="@menu/navegacion"
+    app:labelVisibilityMode="labeled" />
+</LinearLayout>
